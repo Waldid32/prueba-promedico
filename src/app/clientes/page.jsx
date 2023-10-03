@@ -21,7 +21,7 @@ export default function Clientes() {
     }, [])
 
     return (
-        <section className="container mx-auto py-20">
+        <section className="container pt-20 mx-auto">
             <div>
                 <Link href="/clientes/new">
                     <button className="btn bg-slate-800 font-bold text-white text-2xl rounded p-3 hover:bg-slate-900 cursor-pointer" type="button">
@@ -30,7 +30,7 @@ export default function Clientes() {
                 </Link>
             </div>
             <div className="py-20">
-                <table className="table-auto border border-separate border-slate-900 w-full md:table-fixed">
+                <table className="table-auto border border-separate border-slate-900 w-full">
                     <thead className="bg-slate-900">
                         <tr className="font-bold text-xl text-white">
                             <th className="border border-slate-900">Nombre Completo</th>

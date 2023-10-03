@@ -47,7 +47,7 @@ export default function AgentPage() {
                         className="mb-6 border rounded w-full py-2 text-gray-700"
                         onChange={(e) => setCedula(e.target.value)}
                     />
-                    <button type="submit" className="btn py-3 bg-slate-900 text-white font-bold w-52 rounded mt-3">Enviar</button>
+                    <button type="submit" className="btn py-3 bg-slate-900 text-white font-bold w-52 rounded mt-3 mb-6">Enviar</button>
                 </form>
             </div>
         </div>

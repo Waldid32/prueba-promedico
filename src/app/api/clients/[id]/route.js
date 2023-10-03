@@ -15,17 +15,15 @@ export async function GET(request, { params }) {
     }
 }
 
-export async function PUT(request, { params }) {
-    const data = await request.json()
+export async function PUT(request) {
+    const { clienteSelect, agenteSelect } = await request.json()
+
     try {
-        await pool.query("UPDATE `clients` SET ? WHERE id = ?", [
-            data,
-            params.id
+        await pool.query("UPDATE clients SET id_agente = ? WHERE id = ?", [
+            agenteSelect,
+            clienteSelect
         ])
-        return NextResponse.json({
-            ...data,
-            id: params.id
-        })
+        return NextResponse.json({ message: 'Cliente Actualizado' })
     } catch (error) {
         return NextResponse.json(
             { message: error.message },
@@ -47,5 +45,3 @@ export async function DELETE(request, { params }) {
         )
     }
 }
-
-

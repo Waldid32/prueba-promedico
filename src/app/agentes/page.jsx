@@ -28,7 +28,7 @@ export default function Agentes() {
                 </Link>
             </div>
             <div className="py-20">
-                <table className="table-auto border border-separate border-slate-900 w-full md:table-fixed">
+                <table className="table-auto border border-separate border-slate-900 w-full">
                     <thead className="bg-slate-900">
                         <tr className="font-bold text-xl text-white">
                             <th className="border border-slate-900">Nombre Completo</th>
