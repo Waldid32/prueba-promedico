@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Requerimientos del programa 
 
-## Getting Started
+### * Registro de clientes (nombres, cedula, celular, dirección, ciudad).
+### * La ciudad debe tener asociado un departamento 
+### * Creación de API mediante Laravel y consumirlo con React
+### * El agente se crea previamente en la tabla MySql (cédula agente, nombre)
+### * Asignación de agente (un proceso simple donde se asigna el agente al cliente) mediante React
+### * Listar los clientes con su respectivo agente en React
+### * Las acciones del CRUD para los agentes y clientes, se deben hacer mediante React
+### * Se debe usar Laravel.
+### * Sistema de autenticación y registro mediante React
+### * Enviar la prueba comprimida (app, base de datos) al correo rlopez@promedico.com.co, a más tardar el día 3 de Octubre de 2023 a las 6:00PM.
 
-First, run the development server:
+## Se evalúa
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+* Estándares de codificación, documentación y organización del código
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+* Conocimientos básicos en Laravel
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+* Conocimientos básicos de React
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+* Conocimientos en bases de datos relacionales
 
-## Learn More
+* Conocimientos de WebServices
 
-To learn more about Next.js, take a look at the following resources:
+* Conocimientos de Validación
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* Conocimientos de Usabilidad y diseño web 
+ 
+### Plus a tener en cuenta (No requerido)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+* Uso de JWT para seguridad de usuarios logueados.
+* Uso de Git. Subir la prueba a un repositorio público (Github, Gitlab)
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Proyecto realizado en Next JS
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Al descargar el repositorio se debe seguir los siguientes pasos:
+* Ejecutar los siguientes comandos:
+````bash
+npm install (Comando para instalar las dependeicas utilizas en el proyectyo)
+npm run dev (Comando para ejecutar el proyecto en fase de desarrollo)
+
+````
+El proyecto se abre en el puerto defaul 3000 (si esta ocupado se abre en otro puerto.) [http://localhost:3000](http://localhost:3000).
+
+## Detalle
+Se utiliza MYSQL, NEXT JS (React JS), JavaScript, Tailwind Css
+
+#### Waldid Barrios
+
