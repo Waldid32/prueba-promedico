@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <div>
-      <h1>PRUEBA PROMEDICO</h1>
+      <h1>hola</h1>
     </div>
   )
 }
