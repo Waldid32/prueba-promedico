@@ -1,27 +1,34 @@
 import { NextResponse } from "next/server"
+import { pool } from '@/config/db'
 
+export async function GET() {
+    try {
+        const result = await pool.query(`
+            SELECT clients.id, clients.nombres, clients.cedula, clients.celular, clients.direccion, ciudad.ciudad, dep.departamento FROM clients
+            INNER JOIN ciudad ON clients.ciudad = ciudad.id
+            INNER JOIN departamento dep ON dep.id = ciudad.id_departamento
+        `)
+        return NextResponse.json(result[0])
+    } catch (error) {
+        return NextResponse.json(
+            { message: error.message },
+            { status: 500 }
+        )
+    }
+}
 
-export async function GET(req, res, next) {
-    let clients = [
-        {
-            id: 1,
-            nombre: 'Waldid Barrios',
-            cedula: 1245521,
-            celular: 3124587412,
-            direccion: 'Cra 31A # 70 - 85',
-            ciudad: 'CALI'
-        },
-        {
-            id: 2,
-            nombre: 'Gabriela Barrios',
-            cedula: 36588874,
-            celular: 3124587587,
-            direccion: 'Cra 31A # 70 - 85',
-            ciudad: 'CALI'
-        }
-    ]
+export async function POST(request) {
+    try {
+        const { nombres, cedula, celular, direccion, ciudad } = await request.json()
 
-    let data = JSON.stringify(clients)
-
-    return new NextResponse(data, { status: 200 })
+        const result = await pool.query("INSERT INTO clients SET ?", {
+            nombres, cedula, celular, direccion, ciudad
+        })
+        return NextResponse.json({ id: result.insetId, nombres, cedula, celular, direccion, ciudad })
+    } catch (error) {
+        return NextResponse.json(
+            { message: error.message },
+            { status: 500 }
+        )
+    }
 }
