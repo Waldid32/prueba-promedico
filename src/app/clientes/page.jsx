@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 
 export default function Clientes() {
 
-    const [client, setClient] = useState('')
+    const [client, setClient] = useState([])
 
     useEffect(() => {
         const getClient = async () => {
@@ -18,7 +18,7 @@ export default function Clientes() {
             }
         }
         getClient()
-    }, [client])
+    }, [])
 
     return (
         <section className="container mx-auto py-20">
@@ -42,7 +42,7 @@ export default function Clientes() {
                         </tr>
                     </thead>
                     {client && (
-                        client.map((data) => (
+                        client?.map((data) => (
                             <tbody key={data.id}>
                                 <tr className="text-xl">
                                     <td className="border border-slate-950">{data.nombres} </td>

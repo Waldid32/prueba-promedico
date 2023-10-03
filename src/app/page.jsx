@@ -1,7 +1,9 @@
 export default function Home() {
   return (
-    <div>
-      <h1>hola</h1>
-    </div>
+    <section className="flex justify-center items-center my-20">
+      <div>
+        <h1 className="font-bold text-3xl">Asignación de agentes</h1>
+      </div>
+    </section>
   )
 }
