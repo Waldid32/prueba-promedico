@@ -7,6 +7,7 @@ import { getAgentes } from '../api/api'
 const thead = ['Nombre Completo', 'Cedula']
 
 export default function Agentes() {
+
     const [agent, setAgent] = useState('')
 
     // Función para traer los agentes de la API

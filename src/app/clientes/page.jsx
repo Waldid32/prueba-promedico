@@ -12,7 +12,7 @@ export default function Clientes() {
     useEffect(() => {
         const getClient = async () => {
             try {
-                const res = await fetch('http://localhost:3000/api/clients')
+                const res = await fetch('/api/clients')
                 const data = await res.json()
                 setClient(data)
             } catch (error) {

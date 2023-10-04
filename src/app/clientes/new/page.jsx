@@ -33,7 +33,7 @@ export default function ClientPage() {
     const onSubmit = async (e) => {
         e.preventDefault()
 
-        const res = await fetch('http://localhost:3000/api/clients', {
+        const res = await fetch('/api/clients', {
             method: 'POST',
             body: JSON.stringify({ nombres, cedula, celular, direccion, ciudad }),
             headers: {

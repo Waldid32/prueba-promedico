@@ -2,6 +2,7 @@ import { NextResponse } from "next/server"
 import { pool } from '@/config/db'
 
 export async function GET() {
+
     try {
         const result = await pool.query(`
             SELECT clients.id, clients.nombres, clients.cedula, clients.celular, clients.direccion, ciudad.ciudad, dep.departamento, agentes.nombres AS "agente"
