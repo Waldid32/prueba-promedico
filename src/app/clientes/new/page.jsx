@@ -1,4 +1,5 @@
 "use client"
+import { getCiudades } from "@/app/api/api";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react"
 
@@ -17,16 +18,15 @@ export default function ClientPage() {
     const [direccion, setDireccion] = useState('')
 
     useEffect(() => {
-        const getCiudades = async () => {
+        const getCiudad = async () => {
             try {
-                const res = await fetch('http://localhost:3000/api/ciudades')
-                const data = await res.json()
-                setCiudades(data)
+                const ciudades = await getCiudades()
+                setCiudades(ciudades)
             } catch (error) {
                 console.error('Error al obtener las ciudades', error)
             }
         }
-        getCiudades()
+        getCiudad()
     }, [])
 
 

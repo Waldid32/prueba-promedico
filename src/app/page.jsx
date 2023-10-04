@@ -2,6 +2,7 @@
 import Table from "@/components/Table"
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import { getClientes } from "./api/api"
 
 const thead = ['Clientes', 'Agente']
 
@@ -12,9 +13,8 @@ export default function Home() {
   useEffect(() => {
     const getClient = async () => {
       try {
-        const res = await fetch('http://localhost:3000/api/clients')
-        const data = await res.json()
-        setClient(data)
+        const clientes = await getClientes()
+        setClient(clientes)
       } catch (error) {
         console.error('Error al obtener los datos de los clientes', error)
       }

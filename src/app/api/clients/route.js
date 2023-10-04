@@ -8,7 +8,8 @@ export async function GET() {
             FROM clients
             INNER JOIN ciudad ON clients.ciudad = ciudad.id
             INNER JOIN departamento dep ON dep.id = ciudad.id_departamento
-            LEFT JOIN agentes ON agentes.id = clients.id_agent        
+            LEFT JOIN agentes ON agentes.id = clients.id_agent    
+            ORDER BY clients.id_agent ASC      
         `)
         return NextResponse.json(result[0])
     } catch (error) {

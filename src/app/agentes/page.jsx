@@ -2,6 +2,7 @@
 import Table from '@/components/Table'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import { getAgentes } from '../api/api'
 
 const thead = ['Nombre Completo', 'Cedula']
 
@@ -12,10 +13,8 @@ export default function Agentes() {
     useEffect(() => {
         const getAgent = async () => {
             try {
-                const res = await fetch('http://localhost:3000/api/agents')
-                const data = await res.json()
-                // const {} = data
-                setAgent(data)
+                const agentes = await getAgentes()
+                setAgent(agentes)
             } catch (error) {
                 console.error('Error al obtener los datos de los clientes', error)
             }

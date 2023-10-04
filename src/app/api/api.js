@@ -19,3 +19,19 @@ export const getAgentes = async () => {
         throw error;
     }
 };
+
+
+export const getCiudades = async () => {
+    try {
+        const res = await fetch('http://localhost:3000/api/ciudades');
+        const data = await res.json();
+        return data;
+    } catch (error) {
+        console.error('Error al obtener los agentes', error);
+        throw error;
+    }
+};
+
+
+
+
