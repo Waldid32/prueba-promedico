@@ -17,7 +17,7 @@ export default function AssingAgent({ params }) {
     useEffect(() => {
         const getClientes = async () => {
             try {
-                const res = await fetch('http://localhost:3001/api/clients')
+                const res = await fetch('http://localhost:3000/api/clients')
                 const data = await res.json()
                 setClientes(data)
             } catch (error) {
@@ -27,7 +27,7 @@ export default function AssingAgent({ params }) {
         getClientes()
         const getAgentes = async () => {
             try {
-                const res = await fetch('http://localhost:3001/api/agents')
+                const res = await fetch('http://localhost:3000/api/agents')
                 const data = await res.json()
                 setAgentes(data)
             } catch (error) {

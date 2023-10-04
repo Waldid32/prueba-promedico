@@ -12,7 +12,7 @@ export default function AgentPage() {
     const onSubmit = async (e) => {
         e.preventDefault()
 
-        const res = await fetch('http://localhost:3001/api/agents', {
+        const res = await fetch('http://localhost:3000/api/agents', {
             method: 'POST',
             body: JSON.stringify({ nombres, cedula }),
             headers: {

@@ -1,14 +1,18 @@
 "use client"
+import Table from '@/components/Table'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+
+const thead = ['Nombre Completo', 'Cedula']
 
 export default function Agentes() {
     const [agent, setAgent] = useState('')
 
+    // Función para traer los agentes de la API
     useEffect(() => {
         const getAgent = async () => {
             try {
-                const res = await fetch('http://localhost:3001/api/agents')
+                const res = await fetch('http://localhost:3000/api/agents')
                 const data = await res.json()
                 setAgent(data)
             } catch (error) {
@@ -27,26 +31,8 @@ export default function Agentes() {
                     </button>
                 </Link>
             </div>
-            <div className="py-20">
-                <table className="table-auto border border-separate border-slate-900 w-full">
-                    <thead className="bg-slate-900">
-                        <tr className="font-bold text-xl text-white">
-                            <th className="border border-slate-900">Nombre Completo</th>
-                            <th className="border border-slate-900">Cedula</th>
-                        </tr>
-                    </thead>
-                    {agent && (
-                        agent.map((data) => (
-                            <tbody key={data.id}>
-                                <tr className="text-xl">
-                                    <td className="border border-slate-950">{data.nombres} </td>
-                                    <td className="border border-slate-950">{data.cedula} </td>
-                                </tr>
-                            </tbody>
-                        ))
-                    )}
-                </table>
-            </div>
+            {/* se pasan las columnas para realizar un filtro de los registro que se quieren mostrar */}
+            <Table columnas={['nombres', 'cedula']} data={agent} thead={thead} />
         </section>
     )
 }

@@ -1,16 +1,18 @@
 "use client"
+import Table from "@/components/Table"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 
+const thead = ['Nombre Completo', 'Cedula', 'Celular', 'Dirección', 'Ciudad', 'Departamento']
 
 export default function Clientes() {
+    const [client, setClient] = useState('')
 
-    const [client, setClient] = useState([])
-
+    // Función para traer a los clientes de la API
     useEffect(() => {
         const getClient = async () => {
             try {
-                const res = await fetch('http://localhost:3001/api/clients')
+                const res = await fetch('http://localhost:3000/api/clients')
                 const data = await res.json()
                 setClient(data)
             } catch (error) {
@@ -29,34 +31,8 @@ export default function Clientes() {
                     </button>
                 </Link>
             </div>
-            <div className="py-20">
-                <table className="table-auto border border-separate border-slate-900 w-full">
-                    <thead className="bg-slate-900">
-                        <tr className="font-bold text-xl text-white">
-                            <th className="border border-slate-900">Nombre Completo</th>
-                            <th className="border border-slate-900">Cedula</th>
-                            <th className="border border-slate-900">Celular</th>
-                            <th className="border border-slate-900">Dirección</th>
-                            <th className="border border-slate-900">Ciudad</th>
-                            <th className="border border-slate-900">Departamento</th>
-                        </tr>
-                    </thead>
-                    {client && (
-                        client?.map((data) => (
-                            <tbody key={data.id}>
-                                <tr className="text-xl">
-                                    <td className="border border-slate-950">{data.nombres} </td>
-                                    <td className="border border-slate-950">{data.cedula} </td>
-                                    <td className="border border-slate-950">{data.celular} </td>
-                                    <td className="border border-slate-950">{data.direccion} </td>
-                                    <td className="border border-slate-950">{data.ciudad} </td>
-                                    <td className="border border-slate-950">{data.departamento} </td>
-                                </tr>
-                            </tbody>
-                        ))
-                    )}
-                </table>
-            </div>
+            {/* se pasan las COLUMNAS para realizar un filtro de los registro que se quieren mostrar */}
+            <Table columnas={['nombres', 'cedula', 'celular', 'direccion', 'ciudad', 'departamento']} data={client} thead={thead} />
         </section>
     )
 }

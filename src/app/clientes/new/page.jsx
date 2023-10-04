@@ -19,7 +19,7 @@ export default function ClientPage() {
     useEffect(() => {
         const getCiudades = async () => {
             try {
-                const res = await fetch('http://localhost:3001/api/ciudades')
+                const res = await fetch('http://localhost:3000/api/ciudades')
                 const data = await res.json()
                 setCiudades(data)
             } catch (error) {
@@ -33,7 +33,7 @@ export default function ClientPage() {
     const onSubmit = async (e) => {
         e.preventDefault()
 
-        const res = await fetch('http://localhost:3001/api/clients', {
+        const res = await fetch('http://localhost:3000/api/clients', {
             method: 'POST',
             body: JSON.stringify({ nombres, cedula, celular, direccion, ciudad }),
             headers: {

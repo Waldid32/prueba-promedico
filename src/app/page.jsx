@@ -1,4 +1,5 @@
 "use client"
+import Table from "@/components/Table"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 
@@ -9,7 +10,7 @@ export default function Home() {
   useEffect(() => {
     const getClient = async () => {
       try {
-        const res = await fetch('http://localhost:3001/api/clients')
+        const res = await fetch('http://localhost:3000/api/clients')
         const data = await res.json()
         setClient(data)
       } catch (error) {
@@ -18,6 +19,8 @@ export default function Home() {
     }
     getClient()
   }, [])
+
+  const thead = ['Clientes', 'Agente']
 
   return (
     <section className="container my-10 mx-auto">
@@ -31,24 +34,8 @@ export default function Home() {
               </button>
             </Link>
           </div>
-          <table className="table-auto border border-separate border-slate-900 w-full">
-            <thead className="bg-slate-900">
-              <tr className="font-bold text-xl text-white">
-                <th className="border border-slate-900">Cliente</th>
-                <th className="border border-slate-900">Agente</th>
-              </tr>
-            </thead>
-            {client && (
-              client?.map((data) => (
-                <tbody key={data.id}>
-                  <tr className="text-xl">
-                    <td className="border border-slate-950">{data.nombres} </td>
-                    <td className="border border-slate-950">{data.agente} </td>
-                  </tr>
-                </tbody>
-              ))
-            )}
-          </table>
+          {/* se pasan las COLUMNAS para realizar un filtro de los registro que se quieren mostrar */}
+          <Table data={client} thead={thead} columnas={['nombres', 'agente']} />
         </div>
       </div>
     </section>
