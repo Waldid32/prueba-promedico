@@ -3,6 +3,8 @@ import Table from "@/components/Table"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 
+const thead = ['Clientes', 'Agente']
+
 export default function Home() {
 
   const [client, setClient] = useState([])
@@ -19,8 +21,6 @@ export default function Home() {
     }
     getClient()
   }, [])
-
-  const thead = ['Clientes', 'Agente']
 
   return (
     <section className="container my-10 mx-auto">

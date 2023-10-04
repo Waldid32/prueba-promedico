@@ -14,6 +14,7 @@ export default function Agentes() {
             try {
                 const res = await fetch('http://localhost:3000/api/agents')
                 const data = await res.json()
+                // const {} = data
                 setAgent(data)
             } catch (error) {
                 console.error('Error al obtener los datos de los clientes', error)

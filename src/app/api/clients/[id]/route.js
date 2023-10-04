@@ -19,7 +19,7 @@ export async function PUT(request) {
     const { clienteSelect, agenteSelect } = await request.json()
 
     try {
-        await pool.query("UPDATE clients SET id_agente = ? WHERE id = ?", [
+        await pool.query("UPDATE clients SET id_agent = ? WHERE id = ?", [
             agenteSelect,
             clienteSelect
         ])
